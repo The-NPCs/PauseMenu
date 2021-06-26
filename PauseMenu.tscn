@@ -1,0 +1,135 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://MenuPopup.gd" type="Script" id=1]
+[ext_resource path="res://Jam_font-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 90
+outline_size = 3
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MenuPopup" type="Popup"]
+pause_mode = 2
+margin_right = 640.0
+margin_bottom = 480.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainBox" type="ColorRect" parent="."]
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 640.0
+margin_bottom = 481.0
+color = Color( 0.25098, 0.152941, 0.317647, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseTitle" type="Label" parent="MainBox"]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 640.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+text = "Paused"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Unpause" type="ColorRect" parent="."]
+anchor_left = 0.238
+anchor_top = 0.154
+anchor_right = 0.238
+anchor_bottom = 0.154
+margin_left = 40.7949
+margin_top = 31.2239
+margin_right = 296.795
+margin_bottom = 89.2239
+theme = SubResource( 2 )
+color = Color( 0.776471, 0.317647, 0.592157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Unpause"]
+margin_left = -7.62939e-05
+margin_top = 0.428459
+margin_right = 258.0
+margin_bottom = 59.4285
+custom_fonts/font = SubResource( 3 )
+text = "Unpause Game"
+align = 1
+valign = 1
+
+[node name="Restart" type="ColorRect" parent="."]
+anchor_left = 0.238
+anchor_top = 0.154
+anchor_right = 0.238
+anchor_bottom = 0.154
+margin_left = 41.129
+margin_top = 112.248
+margin_right = 299.129
+margin_bottom = 172.248
+theme = SubResource( 2 )
+color = Color( 0.635294, 0.243137, 0.54902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Restart"]
+margin_left = 0.943909
+margin_top = 1.88774
+margin_right = 257.944
+margin_bottom = 59.8877
+custom_fonts/font = SubResource( 3 )
+text = "Restart Game"
+align = 1
+valign = 1
+
+[node name="Quit" type="ColorRect" parent="."]
+anchor_left = 0.238
+anchor_top = 0.154
+anchor_right = 0.238
+anchor_bottom = 0.154
+margin_left = 41.2637
+margin_top = 196.021
+margin_right = 299.264
+margin_bottom = 260.021
+theme = SubResource( 2 )
+color = Color( 0.478431, 0.211765, 0.482353, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Quit"]
+margin_left = -2.0
+margin_top = 2.0
+margin_right = 259.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 3 )
+text = "Quit Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="gui_input" from="Unpause" to="." method="_on_Unpause_gui_input"]
+[connection signal="gui_input" from="Restart" to="." method="_on_Restart_gui_input"]
+[connection signal="gui_input" from="Quit" to="." method="_on_Quit_gui_input"]
